@@ -7,7 +7,7 @@ const fs = require('fs');
 const server = http.createServer(function (request, response) {
   // 设置响应头，用来表示返回内容显示的格式
 
-  if (request.url == '/rect') {
+  if (request.url === '/rect') {
     fs.readFile('./test/rect.html', function (err, data) {
       if (err) {
         throw err;
@@ -17,7 +17,7 @@ const server = http.createServer(function (request, response) {
       response.end(data);
     });
 
-  } else if (request.url == '/circle') {
+  } else if (request.url === '/circle') {
     fs.readFile('./test/circle.html', function(error, data) {
       if (error) {
         throw error;
@@ -26,6 +26,10 @@ const server = http.createServer(function (request, response) {
       response.writeHead(200, {'Content-Type':'text/html;charset=UTF8'});
       response.end(data);
     });
+  } else if (request.url === '/test') {
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.write('OK');
+    response.end();
   } else {
     fs.readFile('./test/404.html', function(error, data) {
       if (error) {
