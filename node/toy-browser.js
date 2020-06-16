@@ -169,8 +169,9 @@ class ResponseParser {
       }
     } 
     else if (this.current === this.WAITING_HEADERS_SPACE) {
-      // char == ' '
-      this.current = this.WAITING_HEADERS_VALUE;
+      if (char == ' ') {
+        this.current = this.WAITING_HEADERS_VALUE;
+      }
     }
     else if (this.current === this.WAITING_HEADERS_VALUE) {
       if (char === '\r') {
@@ -188,7 +189,8 @@ class ResponseParser {
       }
     }
     else if (this.current === this.WAITING_HEADERS_BLOCK_END) {
-      // char === '\n'
+      if (char !== '\n') return;
+
       this.current = this.WAITING_BODY;
       if (this.headers['Transfer-Encoding'] === 'chunked') {
         this.bodyParser = new TrunkedBodyParser();
