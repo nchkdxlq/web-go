@@ -1,8 +1,5 @@
 const net = require('net');
-const Request = require('./request');
-// import { name, age } from './response';
-
-
+const Request = require('./Request');
 
 function createConnection() {
 
@@ -48,15 +45,17 @@ async function request2() {
   console.log(request.toString());
 
   const connection = createConnection();
-  const parser = await request.send(connection);
+
+  // Response类型 对象
+  const response = await request.send(connection);
   console.log('\n------------ line -------------');
-  console.log(parser.statusLine);
+  console.log(response.statusLine);
 
   console.log('\n------------ headers -------------');
-  console.log(parser.headers);
+  console.log(response.headers);
 
   console.log('\n------------ response -------------');
-  console.log(parser.response);
+  console.log(response.toString());
 
 }
 

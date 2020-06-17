@@ -1,4 +1,5 @@
 const TrunkedBodyParser = require('./TrunkedBodyParser');
+const Response = require('../Response');
 
 class ResponseParser {
 
@@ -26,22 +27,17 @@ class ResponseParser {
   }
 
   get response() {
+    if (!this.isFinished) return null;
     this.statusLine.match(/HTTP\/1.1 ([0-9]+) ([\s\S]+)/);
-    return {
+
+    return new Response({
+      statusLine: this.statusLine,
       code: RegExp.$1,
       message: RegExp.$2,
-      header: this.headers,
+      headers: this.headers,
       body: this.bodyParser.content
-    };
+    });
   }
-
-  toString() {
-    let header = Object.keys(this.headers)
-      .map( key => `${key}: ${this.headers[key]}` )
-      .join('\n');
-    return this.statusLine + '\n' + header + '\n' + this.bodyParser.content;
-  }
-
 
   receivedData(data) {
     const string = data.toString();

@@ -50,7 +50,7 @@ class Request {
       });
 
       connection.on('end', () => {
-        resolve(parser);
+        resolve(parser.response);
         console.log('disconnected server');
       });
 
