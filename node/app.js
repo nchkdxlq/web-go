@@ -26,11 +26,14 @@ const server = http.createServer(function (request, response) {
       response.writeHead(200, {'Content-Type':'text/html;charset=UTF8'});
       response.end(data);
     });
-  } else if (request.url === '/test') {
+  } else if (request.url === '/html') {
+    html(request, response);
+  } else if (request.url === '/text') {
     response.writeHead(200, {'Content-Type': 'text/plain'});
     response.write('OK');
     response.end();
-  } else {
+  }
+   else {
     fs.readFile('./test/404.html', function(error, data) {
       if (error) {
         throw error;
@@ -55,3 +58,33 @@ server.listen(8080, '127.0.0.1');
 
 
 
+
+
+function html(request, response) {
+  response.writeHead(200, {'Content-Type': 'text/plain'});
+  let html = 
+`
+<html maaa=a >
+<head>
+  <style>
+body div #myid{
+  width:100px;
+  background-color: #ff5000;
+}
+body div img{
+  width:30px;
+  background-color: #ff1111;
+}
+  </style>
+</head>
+<body>
+  <div>
+      <img id="myid"/>
+      <img />
+  </div>
+</body>
+</html>
+`
+  response.write(html);
+  response.end();
+}
