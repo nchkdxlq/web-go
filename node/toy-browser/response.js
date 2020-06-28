@@ -14,7 +14,7 @@ class Response {
     let header = Object.keys(this.headers)
       .map( key => `${key}: ${this.headers[key]}` )
       .join('\n');
-    return this.statusLine + '\n' + header + '\n' + this.body;
+    return this.statusLine + '\n' + header + '\n\n' + this.body;
   }
 
 }

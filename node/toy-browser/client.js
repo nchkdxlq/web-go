@@ -1,5 +1,7 @@
 const net = require('net');
 const Request = require('./Request');
+const { parseHTML } = require('./parser/HTMLParser');
+// import { parseHTML } from './parser/HTMLParser';
 
 function createConnection() {
 
@@ -57,6 +59,7 @@ async function request2() {
   console.log('\n------------ response -------------');
   console.log(response.toString());
 
+  parseHTML(response.body);
 }
 
 request2();

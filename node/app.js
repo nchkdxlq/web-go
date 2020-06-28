@@ -63,8 +63,7 @@ server.listen(8080, '127.0.0.1');
 function html(request, response) {
   response.writeHead(200, {'Content-Type': 'text/plain'});
   let html = 
-`
-<html maaa=a >
+`<html maaa=a >
 <head>
   <style>
 body div #myid{
@@ -83,8 +82,7 @@ body div img{
       <img />
   </div>
 </body>
-</html>
-`
+</html>`
   response.write(html);
   response.end();
 }
