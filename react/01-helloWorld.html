@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div>Header</div>
+  <div id='app' >app</div>
+  <div>Footer</div>
+
+  <!-- 添加React依赖 -->
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js" ></script>
+
+
+  <!-- 注意事项： 使用jsx，并且希望script中的jsx代码被解析，必须在script标签中添加一个属性 `type='text/babel'` -->
+  <!-- jsx特点：多个标签最外层只能有一个标签-->
+  <script type='text/babel'>
+
+    class App extends React.Component {
+      constructor() {
+        super();
+
+        this.state = {
+          message: 'Hello World'
+        };
+      }
+
+      btnClick = (e) => {
+        console.log(this);
+        this.setState({
+          message: 'Hello React'
+        });
+      }
+
+      render() {
+        return (
+          <div>
+            <h2>{this.state.message}</h2>
+            <button onClick={this.btnClick}>点击改变</button>
+          </div>
+        );
+      }
+    }
+
+    // function btnClick() {
+    //   console.log('hello react');
+    // }
+
+    // let message = 'Hello World';
+    // ReactDOM.render(
+    //   <div>
+    //     <h2>{message}</h2>
+    //     <button onClick={btnClick}>点击改变</button>
+    //   </div>, 
+    //   document.getElementById('app')
+    // );
+
+    ReactDOM.render(<App />, document.getElementById('app'));
+
+  </script>
+</body>
+</html>
