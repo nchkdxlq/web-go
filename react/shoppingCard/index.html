@@ -91,12 +91,9 @@
           <div> 
             <table>
               <thead>
-                <th></th>
-                <th>书籍名称</th>
-                <th>出本日期</th>
-                <th>价格</th>
-                <th>购买数量</th>
-                <th>操作</th>
+                {
+                  ['', '书籍名称', '出本日期', '价格', '购买数量', '操作'].map(item => <th>item</th>)
+                }
               </thead>
               <tbody>
                 {
@@ -110,8 +107,8 @@
                         <button 
                           disabled={item.count <= 1} 
                           onClick={ e => {this.changeBookCount(item.id, -1)} } >
-                          -1
-                          </button>
+                          {-1}
+                        </button>
                         <span className="count">{item.count}</span>
                         <button onClick={ e => {this.changeBookCount(item.id, 1)} } >+1</button>
                       </td>
