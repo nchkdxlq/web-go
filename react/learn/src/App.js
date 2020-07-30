@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import ReduxPage from './redux/index'
+
 
 export default class App extends Component {
 
@@ -30,9 +32,7 @@ export default class App extends Component {
 
     return (
       <div>
-        {"我是App组件"}
-        <h2>当前技术: {count}</h2>
-        <button onClick={ e => {this.increment()} }>+1</button>
+        <ReduxPage />
       </div>
     )
   }
