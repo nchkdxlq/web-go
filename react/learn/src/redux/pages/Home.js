@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import store from '../store/index'
-import { addAction, subAction } from '../store/actionCreators'
+import { addNumAction, subNumAction } from '../store/actionCreators'
 
 
 export default class Home extends PureComponent {
@@ -41,11 +41,11 @@ export default class Home extends PureComponent {
   }
 
   subNumber() {
-    store.dispatch(subAction(1));
+    store.dispatch(subNumAction(1));
   }
 
   addNumber() {
-    store.dispatch(addAction(5));
+    store.dispatch(addNumAction(5));
   }
 
 }

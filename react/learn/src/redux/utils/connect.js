@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import store from '../store/index';
 
-export function connect(mapStateToProps, mapDispatchToProps) {
+export default function connect(mapStateToProps, mapDispatchToProps) {
   return function enhanceHOC(WrappedComponent) {
     return class extends PureComponent {
 
@@ -12,8 +12,7 @@ export function connect(mapStateToProps, mapDispatchToProps) {
         };
       }
 
-
-      componentWillUnmount() {
+      componentDidMount() {
         this.unsubscribe = store.subscribe(() => {
           this.setState({
             storeState: mapStateToProps(store.getState())
@@ -27,9 +26,9 @@ export function connect(mapStateToProps, mapDispatchToProps) {
 
       render() {
         return <WrappedComponent
-          {...this.props}
+          // {...this.props}
           {...mapStateToProps(store.getState())}
-          {...mapDispatchToProps()}
+          {...mapDispatchToProps(store.dispatch)}
         />
       }
     }

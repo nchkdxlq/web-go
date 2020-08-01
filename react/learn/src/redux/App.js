@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
-import Home from './pages/Home'
-import Profile from './pages/Profile'
+import Home from './pages/Home2'
+import Profile from './pages/Profile2'
 
-export default class ReduxPage extends PureComponent {
+export default class App extends PureComponent {
   render() {
     return (
       <div>
