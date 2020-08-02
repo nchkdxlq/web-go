@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import { decAction, subNumAction } from '../store/actionCreators'
 import connect from '../utils/connect'
 
