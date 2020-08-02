@@ -1,18 +1,19 @@
 import React, { PureComponent } from 'react'
-import Home from './pages/Home2'
-import Profile from './pages/Profile2'
+import Home from './pages/Home3'
+import Profile from './pages/Profile3'
 import StoreContext from './utils/context'
 import Store from './store/index'
+import { Provider } from 'react-redux'
 
 export default class App extends PureComponent {
   render() {
     return (
-      <StoreContext.Provider value={Store}>
+      <Provider store={Store}>
         <div>
           <Home />
           <Profile />
         </div>
-      </StoreContext.Provider>
+      </Provider>
     )
   }
 }
