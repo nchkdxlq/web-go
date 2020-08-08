@@ -3,7 +3,7 @@ import {
   ACTION_ADD_NUMBER, 
   ACTION_SUB_NUMBER,
   ACTION_DECREMENT,
-  ACTION_INCREMENT
+  ACTION_INCREMENT,
 } from './constants'
 
 export const addNumAction = (num) => {
