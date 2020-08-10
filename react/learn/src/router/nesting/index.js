@@ -47,6 +47,9 @@ function Topics() {
   console.log(result);
 
   // [?] path 、url有什么区别
+  // The `path` lets us build <Route> paths that are
+  // relative to the parent route, while the `url` lets
+  // us build relative links.
   const { path, url } = result;
 
   return (
