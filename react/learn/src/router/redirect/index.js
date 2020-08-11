@@ -55,7 +55,8 @@ const fakeAuth = {
 }
 
 function AuthButton() {
-  const history = useHistory()
+  // [?]
+  const history = useHistory() 
 
   return fakeAuth.isAuthenticated ? (
     <p>
@@ -75,6 +76,7 @@ function AuthButton() {
 
 
 function PrivateRoute({ children, ...rest }) {
+  // [?]
   const location = useLocation();
   console.log('PrivateRoute', location);
   console.log('rest', rest);

@@ -9,7 +9,7 @@ import {
   useParams,
 } from 'react-router-dom'
 
- export default memo(function NestingExample() {
+export default memo(function NestingExample() {
   return (
     <BrowserRouter>
      <div>
