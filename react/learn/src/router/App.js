@@ -15,11 +15,13 @@ import Profile from './pages/profile';
 import NestingExample from './nesting';
 import RedirectExample from './redirect';
 import RouterConfigExample from './router-config';
+import URLParamsExample from './url-parameters';
+
 
 export default class App extends PureComponent {
   render() {
     return (
-      <RouterConfigExample />
+      <URLParamsExample />
     )
   }
 }
