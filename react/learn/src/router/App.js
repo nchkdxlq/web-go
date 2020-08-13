@@ -16,12 +16,13 @@ import NestingExample from './nesting';
 import RedirectExample from './redirect';
 import RouterConfigExample from './router-config';
 import URLParamsExample from './url-parameters';
+import QueryParameterExample from './query-parameters';
 
 
 export default class App extends PureComponent {
   render() {
     return (
-      <URLParamsExample />
+      <QueryParameterExample />
     )
   }
 }
