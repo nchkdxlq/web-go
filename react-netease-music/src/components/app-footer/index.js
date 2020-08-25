@@ -1,9 +1,16 @@
 import React, { memo } from 'react'
+import FooterLeft from './footer-left'
+import FooterRight from './footer-right'
 
-export default memo(function NWAppHeader() {
+import {
+  Wrapper
+} from './style'
+
+export default memo(function NWAppFooter() {
   return (
-    <div>
-      <h2>appHeader</h2>
-    </div>
+    <Wrapper>
+      <FooterLeft />
+      <FooterRight />
+    </Wrapper>
   )
 })
