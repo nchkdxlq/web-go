@@ -1,6 +1,6 @@
 import NWDiscover from '@/pages/discover'
 import NWMine from '@/pages/mine'
-import NWFriends from '@/pages/friends'
+import NWFriend from '@/pages/friend'
 
 
 const routes = [
@@ -14,8 +14,8 @@ const routes = [
     component: NWMine
   },
   {
-    path: '/friends',
-    component: NWFriends
+    path: '/friend',
+    component: NWFriend
   }
 ];
 

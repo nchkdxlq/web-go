@@ -1,9 +1,9 @@
 import React, { memo } from 'react'
 
-export default memo(function NWFriends() {
+export default memo(function NWFriend() {
   return (
     <div>
-      <h2>friends</h2>
+      <h2>friend</h2>
     </div>
   )
 })
