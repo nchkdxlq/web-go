@@ -35,6 +35,48 @@ export const HeaderLeft = styled.div`
 
     .select-item {
       position: relative;
+      padding: 0 19px;
+
+      a {
+        display: block;
+        font-size: 14px;
+        color: #ccc;
+      }
+
+      :last-of-type a {
+        /* [?] */
+        position: relative;
+        /* [?] */
+        ::after {
+          position: absolute;
+          content: "";
+          width: 28px;
+          height: 19px;
+          background-image: url(${require("@/assets/img/sprite_01.png")});
+          background-position: -190px 0;
+          top: 20px;
+          right: -15px;
+        }
+      }
+
+      /* [?] */
+      &:hover a, a.active {
+        color: #fff;
+        background: #000;
+        text-decoration: none;
+      }
+
+      .active .icon {
+        position: absolute;
+        display: inline-block;
+        width: 12px;
+        height: 7px;
+        bottom: -1px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        background-position: -226px 0;
+      }
+
     }
   }
 
@@ -51,7 +93,7 @@ export const HeaderRight = styled.div`
     height: 32px;
     border-radius: 16px;
 
-    /*【?】这是什么选择器 */
+    /* [?] 这是什么选择器 */
     input {
       &::placeholder {
         font-size: 12px;

@@ -25,7 +25,7 @@ export default memo(function NWAppHeader() {
                 ? <a href={item.link} target='_blank'>
                     {item.title}
                   </a>
-                : <NavLink to={item.link}>
+                : <NavLink to={item.link} exact>
                     {item.title}
                     <i className="sprite_01 icon"></i>
                   </NavLink>
