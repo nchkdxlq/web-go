@@ -1,6 +1,8 @@
 import React, { memo } from 'react';
 
 import { NavLink} from 'react-router-dom'
+import { Input } from 'antd'
+import { SearchOutlined } from '@ant-design/icons'
 
 import { appHeaderLinks } from '@/common/local-data'
 
@@ -42,7 +44,11 @@ export default memo(function NWAppHeader() {
           <a href='/#' className='logo sprite_01'>网易云音乐</a>
           {showHeaderLinks()}
         </HeaderLeft>
-        <HeaderRight>Right</HeaderRight>
+        <HeaderRight>
+          <Input className='search' placeholder={'音乐/视频/电台/用户'} prefix={<SearchOutlined />}/>
+          <div className='center'>创作者中心</div>
+          <div>登录</div>
+        </HeaderRight>
       </div>
       <div className='divider'></div>
     </HeaderWrapper>
