@@ -1,0 +1,23 @@
+
+/* 类型选择器 */
+h1 {
+  color: red;
+}
+
+p {
+  color: green;
+}
+
+p, li {
+  color: green;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* 类选择器 */
+.special {
+  color: orange;
+  font-weight: bold;
+}
