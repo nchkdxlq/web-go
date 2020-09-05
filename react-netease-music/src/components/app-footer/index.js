@@ -1,14 +1,13 @@
 import React, { memo, Fragment } from 'react'
 
+import { appFooterLinks, footerImages } from '@/common/local-data'
+
 import {
   Wrapper,
   FooterLeft,
   FooterRight
 } from './style'
 
-
-
-import { appFooterLinks } from '@/common/local-data'
 
 export default memo(function NWAppFooter() {
 
@@ -60,6 +59,17 @@ export default memo(function NWAppFooter() {
     )
   }
 
+  const renderRightImages = () => {
+    return footerImages.map(item => {
+      return (
+        <li className='item' key={item.link}>
+          <a className='link' href={item.link} target='_blank'></a>
+          <span className='title'>{item.title}</span>
+        </li>
+      )
+    });
+  }
+
   return (
     <Wrapper className='wrap-v2 content'>
       <FooterLeft>
@@ -69,7 +79,7 @@ export default memo(function NWAppFooter() {
         {renderRecord()}
       </FooterLeft>
       <FooterRight>
-        FooterRight
+        {renderRightImages()}
       </FooterRight>
     </Wrapper>
   )

@@ -50,3 +50,26 @@ export const appFooterLinks = [
     link: '#'
   }
 ];
+
+export const footerImages = [
+  {
+    link: 'https://web-amped.music.163.com/',
+    title: 'Amped studio'
+  },
+  {
+    link: 'https://music.163.com/st/userbasic#/auth',
+    title: '用户认证'
+  },
+  {
+    link: 'https://music.163.com/nmusician/web/index#/',
+    title: '独立音乐人'
+  },
+  {
+    link: 'https://music.163.com/web/reward',
+    title: '赞赏'
+  },
+  {
+    link: 'https://music.163.com/uservideo#/plan',
+    title: '视频奖励'
+  }
+]
