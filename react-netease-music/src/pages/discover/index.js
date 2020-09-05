@@ -1,5 +1,7 @@
 import React, { memo } from 'react'
-import { NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import { renderRoutes } from 'react-router-config'
+import { Recommend } from '@/pages/discover/c-pages/recommend'
 
 import {
   dicoverMenu
@@ -10,11 +12,13 @@ import {
   TopMenu
 } from './style'
 
-export default memo(function NWDiscover() {
+export default memo(function NWDiscover(props) {
+  const { route } = props;
+
   return (
     <DiscoverWrapper>
-      <div className='wrap-v1'>
-        <TopMenu >
+      <div className='top'>
+        <TopMenu className='wrap-v1'>
           {
             dicoverMenu.map(item => {
               return (
@@ -26,6 +30,7 @@ export default memo(function NWDiscover() {
           }
         </TopMenu>
       </div>
+      {renderRoutes(route.routes)}
     </DiscoverWrapper>
   )
 })
