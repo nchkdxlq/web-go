@@ -1,7 +1,7 @@
 import React, { memo, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
-import { getTopBannerAction } from '../recommend/store/actionCreators'
+import { getTopBannerAction } from '../recommend/store/actionCreators';
 
 import {
   Wrapper
@@ -9,38 +9,60 @@ import {
 
 
 function Recommend(props) {
-  const { getBanners } = props;
+  const { topBanners } = useSelector(state => {
+    return {
+      // topBanners: state.get('recommend').get('topBanners')
+      topBanners: state.getIn(['recommend', 'topBanners'])
+    }
+  }, shallowEqual);
 
+  const dispatch = useDispatch();
   useEffect(() => {
-    getBanners();
-  }, [getBanners])
+    dispatch(getTopBannerAction());
+  }, [dispatch])
 
   return (
     <Wrapper>
       <div className='wrap-v1'>
-        content
+        content {topBanners.length}
       </div>
     </Wrapper>
   )
 }
 
-// export default memo(Recommend);
+export default memo(Recommend);
 
-const mapStateToProps = state => {
-  return {
-    topBanners: state.recommendReducer.topBanners
-  }
-}
+// function Recommend(props) {
+//   const { getBanners, topBanners } = props;
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getBanners: () => {
-      dispatch(getTopBannerAction())
-    }
-  }
-}
+//   useEffect(() => {
+//     getBanners();
+//   }, [getBanners])
 
-export default connect(mapStateToProps, mapDispatchToProps)(memo(Recommend));
+//   return (
+//     <Wrapper>
+//       <div className='wrap-v1'>
+//         content {topBanners.length}
+//       </div>
+//     </Wrapper>
+//   )
+// }
+
+// const mapStateToProps = state => {
+//   return {
+//     topBanners: state.recommendReducer.topBanners
+//   }
+// }
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     getBanners: () => {
+//       dispatch(getTopBannerAction())
+//     }
+//   }
+// }
+
+// export default connect(mapStateToProps, mapDispatchToProps)(memo(Recommend));
 
 
 
