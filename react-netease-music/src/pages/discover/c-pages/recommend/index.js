@@ -1,7 +1,6 @@
-import React, { memo, useEffect } from 'react';
-import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import React, { memo } from 'react';
 
-import { getTopBannerAction } from '../recommend/store/actionCreators';
+import TopBanner from './c-cpns/top-banner'
 
 import {
   Wrapper
@@ -9,23 +8,9 @@ import {
 
 
 function Recommend(props) {
-  const { topBanners } = useSelector(state => {
-    return {
-      // topBanners: state.get('recommend').get('topBanners')
-      topBanners: state.getIn(['recommend', 'topBanners'])
-    }
-  }, shallowEqual);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getTopBannerAction());
-  }, [dispatch])
-
   return (
     <Wrapper>
-      <div className='wrap-v1'>
-        content {topBanners.length}
-      </div>
+      <TopBanner />
     </Wrapper>
   )
 }
