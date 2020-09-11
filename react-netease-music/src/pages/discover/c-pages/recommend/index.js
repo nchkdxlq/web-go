@@ -1,9 +1,13 @@
 import React, { memo } from 'react';
 
-import TopBanner from './c-cpns/top-banner'
+import TopBanner from './c-cpns/top-banner';
+import HotRecommend from './c-cpns/hot-recommend';
 
 import {
-  Wrapper
+  Wrapper,
+  Content,
+  ContentRight,
+  ContentLeft
 } from './style'
 
 
@@ -11,6 +15,14 @@ function Recommend(props) {
   return (
     <Wrapper>
       <TopBanner />
+      <Content className='wrap-v2'>
+        <ContentLeft>
+          <HotRecommend />
+        </ContentLeft>
+        <ContentRight>
+        ContentRight
+        </ContentRight>
+      </Content>
     </Wrapper>
   )
 }
