@@ -1,0 +1,11 @@
+
+.bg-color {
+  background-color: orangered;
+}
+
+
+.bg-image {
+  height: 800px;
+  width: 800px;
+  background-image: url('../../../assets/start.png');
+}
