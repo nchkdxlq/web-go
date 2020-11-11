@@ -1,6 +1,9 @@
 const express = require('express');
 const multer = require('multer');
 
+const userRouter = require('./routers/users');
+
+
 // express其实是一个函数, createApplication
 const app = express();
 
@@ -15,11 +18,15 @@ app.use(express.json());
  **/ 
 app.use(express.urlencoded({extended:true}));
 
+
+
+// 注册路由
+app.use('/user', userRouter);
+
 /**
  * Content-Type: form-data
  * */ 
 const upload = multer();
-app.use(upload.any());
 
 app.use('/home', (req, res, next) => {
   console.log('home middleware 01');
