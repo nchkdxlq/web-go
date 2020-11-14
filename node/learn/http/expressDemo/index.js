@@ -10,6 +10,8 @@ const app = express();
 // Content-Type: application/json 时
 app.use(express.json());
 
+app.use(express.static('./build'));
+
 /**
  * Content-Type: x-wwww-form-urlencoded
  * extended:
